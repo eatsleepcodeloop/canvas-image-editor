@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas Image Editor</title>
+  <meta
+    name="description"
+    content="A standalone canvas image editor extracted from a production meme creator and rebuilt as a portfolio-ready static app."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <h1>Canvas Image Editor</h1>
+      <p class="lede">
+        A standalone image editor extracted from my production codebase and rebuilt into a
+        clean static app for GitHub hosting.
+      </p>
+      <div class="hero-actions">
+        <label class="button button-primary" for="baseImageInput">Upload Base Image</label>
+        <input id="baseImageInput" type="file" accept="image/*" hidden>
+        <button id="downloadBtn" class="button button-secondary" type="button" disabled>Download PNG</button>
+      </div>
+      <p id="statusText" class="status">Upload an image to start editing.</p>
+    </section>
+
+    <section class="workspace">
+      <div class="canvas-panel">
+        <div class="canvas-header">
+          <div>
+            <p class="panel-label">Editor</p>
+            <h2>Interactive Canvas</h2>
+          </div>
+          <label class="toggle">
+            <input id="editToggle" type="checkbox" checked>
+            <span>Edit mode</span>
+          </label>
+        </div>
+
+        <div id="canvasFrame" class="canvas-frame is-empty">
+          <div id="canvasOverlay" class="canvas-overlay" hidden></div>
+          <div id="canvasPlaceholder" class="canvas-placeholder">
+            <p>Drop in a base image, then draw, annotate, blur, pixelate, and export.</p>
+          </div>
+          <canvas id="editorCanvas"></canvas>
+        </div>
+      </div>
+
+      <aside class="controls">
+        <section class="control-card">
+          <div class="control-title-row">
+            <div>
+              <p class="panel-label">Annotate</p>
+              <h3>Brush + Text</h3>
+            </div>
+            <input id="colorPicker" type="color" value="#ff6b35" aria-label="Pick color">
+          </div>
+
+          <label class="field">
+            <span>Brush Size</span>
+            <input id="brushSize" type="range" min="1" max="80" step="1" value="4">
+          </label>
+
+          <div class="button-grid">
+            <button id="drawToggleBtn" class="button button-tile" type="button" disabled>Enable Draw</button>
+            <button id="disableDrawBtn" class="button button-tile" type="button" disabled>Disable Draw</button>
+            <button id="addTextBtn" class="button button-tile" type="button" disabled>Add Text</button>
+            <button id="watermarkBtn" class="button button-tile" type="button" disabled>Add Watermark</button>
+          </div>
+
+          <div class="field-row">
+            <label class="field">
+              <span>Font</span>
+              <select id="fontFamily">
+                <option value="Arial">Arial</option>
+                <option value="Helvetica">Helvetica</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Courier New">Courier New</option>
+                <option value="Comic Sans MS">Comic Sans MS</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Weight</span>
+              <select id="fontWeight">
+                <option value="normal">Normal</option>
+                <option value="bold">Bold</option>
+                <option value="bolder">Bolder</option>
+                <option value="lighter">Lighter</option>
+              </select>
+            </label>
+          </div>
+        </section>
+
+        <section class="control-card">
+          <p class="panel-label">Layers</p>
+          <h3>Objects + Effects</h3>
+
+          <div class="button-grid">
+            <label class="button button-tile is-label" for="overlayImageInput">Add Image</label>
+            <input id="overlayImageInput" type="file" accept="image/*" hidden>
+            <button id="blurBtn" class="button button-tile" type="button" disabled>Add Blur</button>
+            <button id="pixelateBtn" class="button button-tile" type="button" disabled>Add Pixelate</button>
+            <button id="deleteBtn" class="button button-tile" type="button" disabled>Delete Selected</button>
+            <button id="clearBtn" class="button button-tile danger" type="button" disabled>Clear Layers</button>
+          </div>
+        </section>
+
+        <section class="control-card">
+          <p class="panel-label">Sticker Pack</p>
+          <h3>Quick Overlays</h3>
+          <div id="stickerGrid" class="sticker-grid"></div>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <script src="./assets/vendor/fabric5.3.0.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
