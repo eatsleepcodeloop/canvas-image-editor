@@ -6,7 +6,6 @@ A browser-based image editor built with Fabric.js lets you upload a base image, 
 
 ## Why This Repo Exists
 
-
 What this repo demonstrates:
 
 - Feature extraction from a production codebase into a smaller standalone project
@@ -36,8 +35,6 @@ If GitHub Pages has not been enabled yet, that URL will stay unavailable until t
 - Export the finished composition as a high-resolution PNG
 
 ## Screenshots
-
-These are SVG placeholders so the README renders cleanly now. Replace them with real captures once the live demo is available and you can stage representative edits in the canvas.
 
 ### Editor Overview
 
