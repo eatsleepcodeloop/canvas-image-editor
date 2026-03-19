@@ -38,15 +38,15 @@ If GitHub Pages has not been enabled yet, that URL will stay unavailable until t
 
 ### Editor Overview
 
-![Editor overview placeholder](./screenshots/editor-overview.svg)
+![Editor overview placeholder](./screenshots/editor-overview.png)
 
 ### Blur And Pixelate Workflow
 
-![Effects workflow placeholder](./screenshots/effects-workflow.svg)
+![Effects workflow placeholder](./screenshots/effects-workflow.png)
 
 ### Sticker Library
 
-![Sticker library placeholder](./screenshots/sticker-library.svg)
+![Sticker library placeholder](./screenshots/sticker-library.png)
 
 ## Run Locally
 
